@@ -1,0 +1,28 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres:15.2
+    environment:
+      POSTGRES_DB: digiusher_db
+      POSTGRES_USER: digiusher_db
+      POSTGRES_PASSWORD: digiusher_db
+    restart: always
+    volumes:
+      - digiusher_db:/var/lib/postgresql/data
+
+  web:
+    build:
+      context: .
+    depends_on:
+      - db
+    working_dir: /code/
+    volumes:
+      - ./:/code/
+    restart: always
+    command: bash -c "flask db migrate && flask db upgrade && flask run -h 0.0.0.0 -p 3000 --debug"
+    ports:
+      - "3000:3000"
+
+volumes:
+  digiusher_db:

@@ -1,0 +1,9 @@
+Flask==3.1.0
+psycopg2>=2.9.5,<2.10
+Flask-SQLAlchemy==3.1.1
+Flask-Migrate==4.0.7
+currencies==2020.12.12
+click==8.1.7
+requests==2.32.3
+currencies==2020.12.12
+Flask-APScheduler==1.13.1
