@@ -110,7 +110,5 @@ def import_aws_data():
         # Download service price list files and process them
         # Test using eu-west-1, after testing we remove the continue block
         for region_code, details in region_index_data['regions'].items():
-            if region_code != 'eu-west-1':
-                continue
             current_region_index_url = details['currentVersionUrl']
             persist_aws_data_using_csv(region_code, service_price_list_url.format(base_url=AWS_BASE_URL, uri=current_region_index_url))
