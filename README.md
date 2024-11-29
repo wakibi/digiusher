@@ -23,6 +23,7 @@ That will take you to the Linux shell of the application container. From there, 
 `flask integrations update aws`
 
 You should now have data in your database to use for testing the API.
+- To use pagination, add `page` and `per_page` parameters to the query (GET) parameters. Default `per_page` value is 20
 
 ## What can be improved
 - Adding Type hints through the codebase
