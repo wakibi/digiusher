@@ -14,7 +14,6 @@ def getPrices():
     ram = request.args.get('memory', None)
     query_params = { 'provider': cloud_type, 'region': location, 'cpus': number_of_cpus, 'ram': ram }
     query_params = removeNoneAndEmptyItems(query_params)
-    print(query_params)
     if query_params:
         price_data = db.paginate(
             db.select(CloudPriceData).filter_by(**query_params).order_by(CloudPriceData.id)
